@@ -73,7 +73,7 @@ namespace WordCounter.Models
                 string eachWord = SortWordsBySize()[idx];
                 for(int index = 0; index < eachWord.Length; index++)
                 { 
-                    
+                    Console.WriteLine(eachWord[index]+","+this.word[index]);
                     if(eachWord[index]==this.word[index])
                     {
                         count++;
@@ -83,14 +83,25 @@ namespace WordCounter.Models
                 {
                     countWords++;
                 }
+                count = 0;
             }
             return countWords;
+        }
+        public string RestoreSentenceByRemovingLastLetter()
+        {
+            string userGivenSentence = " ";
+            for(int idx = 0; idx < this.sentence.Length-2; idx++)
+            {
+                userGivenSentence+=this.sentence[idx];
+            }
+            return userGivenSentence;
         }
 
         public string Print()
         {
-            string output = "Given word: " + this.word + ", Given sentence: " + this.sentence + ", \n There is "
-            +CountTheSameWords()+" in your sentence."; 
+
+            string output = "Given word: " + this.word + ", Given sentence: " + RestoreSentenceByRemovingLastLetter() 
+            + ", \n" + CountTheSameWords() + " similar words in your sentence."; 
             return output;
         }
 
