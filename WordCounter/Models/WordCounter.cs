@@ -9,7 +9,7 @@ namespace WordCounter.Models
         public Word_Counter(string given_sentence, string given_word)
         {
             this.word = given_word;
-            this.sentence = given_sentence+"  e";
+            this.sentence = given_sentence+" e";
         }
         public string GetWord()
         {
