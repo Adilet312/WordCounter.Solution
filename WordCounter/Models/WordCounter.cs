@@ -31,6 +31,23 @@ namespace WordCounter.Models
             this.sentence = new_sentence;
         }
 
+        public string SentencePeriodsAndCommas()
+        {
+            string sentence_without_commas_periods = "";
+            for( int index = 0; index < this.sentence.Length; index++)
+            {
+                if(this.sentence[index]==',' || this.sentence[index]=='.' || this.sentence[index]==':' ||
+                   this.sentence[index]==';' || this.sentence[index]=='?'|| this.sentence[index]=='(' || this.sentence[index]==')')
+                {
+                    sentence_without_commas_periods+=' ';
+                }
+                else
+                {
+                    sentence_without_commas_periods+=this.sentence[index];
+                }
+            }
+            return sentence_without_commas_periods;
+        }
         public List<string> SplitSentenceIntoWords()
         {
             string split_word="";
@@ -89,7 +106,7 @@ namespace WordCounter.Models
         }
         public string RestoreSentenceByRemovingLastLetter()
         {
-            string userGivenSentence = " ";
+            string userGivenSentence = "";
             for(int idx = 0; idx < this.sentence.Length-2; idx++)
             {
                 userGivenSentence+=this.sentence[idx];
