@@ -52,17 +52,17 @@ namespace WordCounter.Models
         {
             string split_word="";
             List<string> list = new List<string>();
-            for(int idx = 0; idx < this.sentence.Length; idx++)
+            for(int idx = 0; idx < SentencePeriodsAndCommas().Length; idx++)
             {
                 
-                if (this.sentence[idx]==' ')
+                if (SentencePeriodsAndCommas()[idx]==' ')
                 {
                     list.Add(split_word);
                     split_word="";
                 }
                 else 
                 {
-                    split_word+=this.sentence[idx];
+                    split_word+=SentencePeriodsAndCommas()[idx];
                 }
             }
 
@@ -90,7 +90,6 @@ namespace WordCounter.Models
                 string eachWord = SortWordsBySize()[idx];
                 for(int index = 0; index < eachWord.Length; index++)
                 { 
-                    Console.WriteLine(eachWord[index]+","+this.word[index]);
                     if(eachWord[index]==this.word[index])
                     {
                         count++;
