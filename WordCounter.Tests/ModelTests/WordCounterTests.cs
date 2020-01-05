@@ -12,8 +12,8 @@ namespace WordCounter.Tests
             Word_Counter word_sentence = new Word_Counter("I am a student.","Epicodus");
             string word = "Epicodus";
             string sentence = "I am a student.";
-            Assert.AreEqual(word,word_sentence.GetWord());
-            Assert.AreNotEqual(sentence,word_sentence.GetSentence());
+            Assert.AreEqual(word.ToLower(),word_sentence.GetWord());
+            Assert.AreNotEqual(sentence.ToLower(),word_sentence.GetSentence());
             
 
         }
@@ -37,7 +37,7 @@ namespace WordCounter.Tests
         public void SplitSentenceIntoArray()
         {
             Word_Counter word_sentence = new Word_Counter("I am a student.","Epicodus");
-            List<string> list = new List<string> {"I","am","a","student."};
+            List<string> list = new List<string> {"I","am","a","student","e"};
             Assert.AreEqual(list.Count,word_sentence.SplitSentenceIntoWords().Count);//Check size of the list.
             Assert.AreEqual(list[0],word_sentence.SplitSentenceIntoWords()[0]);//Check first element of the list.
             Assert.AreEqual(list[1],word_sentence.SplitSentenceIntoWords()[1]); //Check second element of the list.
@@ -52,7 +52,7 @@ namespace WordCounter.Tests
         {
             string given_word = "at";
              Word_Counter word_sentence = new Word_Counter("I am a student and a developer at MS .",given_word);
-             List<string> twoLetterWords = new List<string>{"am","at","MS"};
+             List<string> twoLetterWords = new List<string>{"am","at","ms"};
              Assert.AreEqual(twoLetterWords.Count,word_sentence.SortWordsBySize().Count);//Check size of the list
              Assert.AreEqual("am",word_sentence.SortWordsBySize()[0]);//Compare element of the list.
              Assert.AreEqual("at",word_sentence.SortWordsBySize()[1]);

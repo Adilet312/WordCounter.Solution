@@ -8,8 +8,8 @@ namespace WordCounter.Models
         private string sentence;
         public Word_Counter(string given_sentence, string given_word)
         {
-            this.word = given_word;
-            this.sentence = given_sentence+" e";
+            this.word = given_word.ToLower();
+            this.sentence = given_sentence+" e".ToLower();
         }
         public string GetWord()
         {
@@ -37,7 +37,8 @@ namespace WordCounter.Models
             for( int index = 0; index < this.sentence.Length; index++)
             {
                 if(this.sentence[index]==',' || this.sentence[index]=='.' || this.sentence[index]==':' ||
-                   this.sentence[index]==';' || this.sentence[index]=='?'|| this.sentence[index]=='(' || this.sentence[index]==')')
+                   this.sentence[index]==';' || this.sentence[index]=='?'|| this.sentence[index]=='(' ||
+                   this.sentence[index]==')' || this.sentence[index]=='!')
                 {
                     sentence_without_commas_periods+=' ';
                 }
